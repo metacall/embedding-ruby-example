@@ -56,5 +56,5 @@ ENV LOADER_LIBRARY_PATH="/usr/local/lib" \
 # Run the executable (testing)
 RUN embedding_ruby_example
 
-# Command
+# Set up the entry point
 CMD [ "embedding_ruby_example" ]
