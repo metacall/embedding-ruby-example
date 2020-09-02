@@ -49,7 +49,12 @@ RUN git clone https://github.com/metacall/embedding-ruby-example.git \
 	&& cmake .. \
 	&& cmake --build . --target install
 
-# Run the executable
-RUN export LOADER_LIBRARY_PATH="/usr/local/lib" \
-	&& export LOADER_SCRIPT_PATH="`pwd`/embedding-ruby-example" \
-	&& embedding_ruby_example
+# Env vars for MetaCall
+ENV LOADER_LIBRARY_PATH="/usr/local/lib" \
+	LOADER_SCRIPT_PATH="/root/embedding-ruby-example"
+
+# Run the executable (testing)
+RUN embedding_ruby_example
+
+# Command
+CMD [ "embedding_ruby_example" ]
